@@ -27,14 +27,14 @@ La paginación también puede combinarse con el resto de las querys, ejemplo:
 [localhost/TPE3/api/cursos?categoria=maquillaje&orderBy=costo&sort=asc&limit=3&page=1]:
 este ejemplo me mostraria aquellos cursos pertenecientes a la categoria maquillaje, ordenados de forma ascendente segun el costo y me mostraria solo los primeros 3 de la pagina 1.
 
-- ('cursos/:id'  ,       'GET'):
+-('cursos/:id'  ,       'GET'):
   .GET [localhost/nombre_de_la_carpeta/api/cursos/ID]
   este endpoint nos permite buscar un curso en especifico por ID. EJEMPLO: [localhost/TPE3/api/cursos/15], me mostraria el curso con id=15
   
-- ('cursos/:id'  ,       'DELETE'):
+-('cursos/:id'  ,       'DELETE'):
   .DELETE [localhost/nombre_de_la_carpeta/api/cursos/ID] este endpoint permite eliminar un curso en específico que se indica en el ID.
   
-- ('cursos/:id'  ,       'PUT'):
+-('cursos/:id'  ,       'PUT'):
 .PUT [localhost/nombre_de_la_carpeta/api/cursos/ID]: este endpoint nos permite editar un curso, para eso, en el postman deberas seleccionar: body, raw y elegir la opcion JSON. Para poder editar se debe enviar la informacion en formato JSON, utilizar este formato:
 {
   "categoria": "maquillaje",
@@ -47,7 +47,7 @@ este ejemplo me mostraria aquellos cursos pertenecientes a la categoria maquilla
   }
   una vez editado el curso que elegiste por id, lo muestra.
 
-- ('cursos'      ,       'POST'):
+-('cursos'      ,       'POST'):
   .POST [localhost/nombre_de_la_carpeta/api/cursos]: este endpoint me permite crear un nuevo curso, para eso escribimos en formato JSON las caracteristicas del nuevo curso y lo enviamos. Utilizar este formato:
   {
 "categoria": "maquillaje",
