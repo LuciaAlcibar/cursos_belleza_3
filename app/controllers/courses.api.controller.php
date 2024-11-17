@@ -47,9 +47,9 @@ class CoursesApiController {
         $orderBy = false;
         if (isset($req->query->orderBy)) {
             $orderBy = $req->query->orderBy;
-            $validOrderBy = ['duracion', 'costo', 'profesor'];
+            $validOrderBy = ['duracion', 'costo', 'profesor', 'descripcion', 'nombre'];
             if (!in_array($orderBy, $validOrderBy)) {
-                return $this->view->response("El parámetro 'orderBy' debe ser 'duracion', 'costo', o 'profesor'.", 400);
+                return $this->view->response("El parámetro 'orderBy' debe ser 'duracion', 'costo', 'profesor', 'descripcion' o 'nombre'.", 400);
             }
         }
     
