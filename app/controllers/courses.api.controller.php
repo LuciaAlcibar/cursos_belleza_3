@@ -77,7 +77,19 @@ class CoursesApiController {
             return $this->view->response("No se encontraron cursos para la categoría '$categoria' en la página $page.", 404);
         }
     
-        return $this->view->response($courses);
+        return $this->view->response($courses, 200);
+    }
+
+    public function getCourse($req){
+        $id = $req->params->id;
+
+        $course = $this->model->getCourse($id);
+
+        if (!$course) {
+            return $this->view->response("el curso con el id= $id no existe", 404);
+        }
+
+        return $this->view->response($course, 200);
     }
     
     
@@ -91,7 +103,7 @@ class CoursesApiController {
         }
 
         $this->model->eraseCourse($id);
-        $this->view->response("el curso con el id= $id se eliminó con éxito");
+        return $this->view->response("el curso con el id= $id se eliminó con éxito");
     }
 
     public function createCourse($req) {
@@ -144,7 +156,7 @@ class CoursesApiController {
         $this->model->updateCourse($categoria, $nombre, $descripcion, $duracion, $profesor, $costo, $imagen, $id);
 
         $course = $this->model->getCourse($id);
-        $this->view->response($course, 200);
+        return $this->view->response($course, 200);
     }
 
 }
